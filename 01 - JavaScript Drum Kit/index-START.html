@@ -58,9 +58,22 @@
   <audio data-key="76" src="sounds/tink.wav"></audio>
 
 <script>
+    const buttons = Array.from(document.querySelectorAll('.key'));
+    const sounds = Array.from(document.querySelectorAll('audio'));
 
+    buttons.forEach(button => {
+      button.addEventListener('transitionend', event => event.target.classList.remove('playing'))
+    });
+
+    document.addEventListener('keypress', event => {
+      let button = buttons.filter(button => event.keyCode == button.dataset.key).pop();
+      let sound = sounds.filter(sound => event.keyCode == sound.dataset.key).pop();
+
+      button.classList.add('playing');
+      sound.currentTime = 0;
+      sound.play();
+    });
 </script>
-
 
 </body>
 </html>
