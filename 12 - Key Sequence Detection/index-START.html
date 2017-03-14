@@ -7,6 +7,26 @@
 </head>
 <body>
 <script>
+const konamiCode = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];
+let keysPressed = [];
+window.addEventListener('keyup', (e) => {
+    keysPressed.push(e.keyCode);
+
+    // check key sequence against konami code
+    keysPressed.forEach((value, index) => {
+        // do we have a match for all ?
+        if (index == konamiCode.length - 1) {
+            // We do! Cornify!!
+            cornify_add();
+            keysPressed = [];
+        }
+
+        if (value != konamiCode[index]) {
+            // Entered a wrong key, start over.
+            keysPressed = [];
+        }
+    });
+});
 </script>
 </body>
 </html>
