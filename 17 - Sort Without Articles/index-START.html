@@ -44,7 +44,7 @@
   <ul id="bands"></ul>
 
 <script>
-document.querySelector('#bands').innerHTML=['The Plot in You','The Devil Wears Prada','Pierce the Veil','Norma Jean','The Bled','Say Anything','The Midway State','We Came as Romans','Counterparts','Oh, Sleeper','A Skylit Drive','Anywhere But Here','An Old Dog'].sort((a, b)=>(a.replace(/^(a |the |an)/i, '').trim()>b.replace(/^(a |the |an)/i, '').trim())?1:-1).map((b)=>`<li>${b}</li>`).join('');
+document.querySelector('#bands').innerHTML = ['The Plot in You','The Devil Wears Prada','Pierce the Veil','Norma Jean','The Bled','Say Anything','The Midway State','We Came as Romans','Counterparts','Oh, Sleeper','A Skylit Drive','Anywhere But Here','An Old Dog'].sort((a,b)=>a.replace(/^(a |the |an )/i, '').trim()>b.replace(/^(a |the |an )/i, '').trim()?1:-1).map((b)=>`<li>${b}</li>`).join('');
 </script>
 
 </body>
